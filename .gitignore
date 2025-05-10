@@ -1,15 +1,36 @@
+# Android / Kotlin
 *.iml
 .gradle
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+/.idea
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+/build/
+captures/
+output.json
+
+# Kotlin DSL & Gradle
+.gradle/
+build/
+**/build/
+**/.gradle/
+
+# Cursor
+.cursor/cache/
+.cursor/tmp/
+.cursor/session*
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+*.swp
+*.swo
+
+# Node.js (si tu ajoutes un serveur plus tard)
+node_modules/
+.env
+
+.cursorrules
+.cursorignore
+.gitmessage
