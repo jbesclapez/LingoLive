@@ -1,0 +1,131 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# LingoLive – Cursor Directory Rules
+
+## 👤 Developer Profile
+You are a **Senior Kotlin developer** building an Android 12 (API 31) application with local AI models for real-time voice translation. You follow clean architecture, MVI pattern, SOLID principles, and Kotlin best practices.
+
+---
+
+## 🎯 Project Goals
+
+- Translate speech between speakers in real time using on-device models (Whisper, NLLB-200, Coqui TTS)
+- Ensure low-latency, reliable and scalable architecture
+- Use Kotlin, ViewBinding, Flow/LiveData, and XML UI
+- Avoid Jetpack Compose entirely
+- Ensure future compatibility with iOS and smartwatches
+
+---
+
+## 🧠 Global Programming Guidelines (Kotlin)
+
+### Naming
+
+- Classes → `PascalCase`
+- Variables, functions → `camelCase`
+- Files and directories → `underscored_case`
+- Booleans → prefixed with `is`, `has`, `can`
+- Constants → `UPPER_CASE`
+
+### Structure
+
+- Use `val` over `var` for immutability
+- Avoid `any`; type all variables/functions explicitly
+- Avoid magic numbers; extract constants
+- Use `data class` and `sealed class` for state
+- Prefer short functions (≤ 20 lines) with a single purpose
+- Start functions with a verb
+- Return booleans with `isX`, `hasX`, `canX`
+- Avoid deep nesting → use early returns or utility functions
+- Use default parameters instead of null checks
+- Use RO-RO pattern for multi-param functions
+
+---
+
+## 🧱 Architecture Standards
+
+- Clean Architecture: UI → ViewModel → UseCase → Repository → Data
+- MVI Pattern for state and events in ViewModel
+- ViewBinding for all view access (no findViewById)
+- Flow or LiveData for observable state
+- ConstraintLayout for layouts
+- Material 3 components only
+- Navigation handled via Navigation Component
+- No Jetpack Compose allowed
+
+---
+
+## 🧪 Testing Conventions
+
+- Unit tests follow Arrange-Act-Assert
+- Clear variable names: `inputX`, `expectedX`, `mockX`, etc.
+- Use mocks for dependencies
+- Write integration tests for AI module chains
+- Measure latency and stability under stress
+
+---
+
+## 📁 Directory Structure Expected
+
+- `ui/` → Activities and Fragments
+- `viewmodel/` → ViewModels with MVI logic
+- `domain/` → Business logic and models
+- `data/` → Local/remote data source implementations
+- `tts/`, `stt/`, `translator/` → AI integration layers
+
+---
+
+## 🤖 Cursor Behavior
+
+Cursor should:
+- Apply these rules automatically when generating or editing code
+- Suggest only idiomatic Kotlin and MVI-compliant patterns
+- Avoid Jetpack Compose entirely
+- Prefer clean, typed, readable code
+
+docs/
+├── architecture/
+│   ├── overview.md           # High-level architecture
+│   ├── modules.md           # Detailed module descriptions
+│   └── data-flow.md         # Data flow diagrams
+├── phases/
+│   ├── phase1-android.md    # Android MVP details
+│   ├── phase2-wearos.md     # Wear OS integration
+│   ├── phase3-ios.md        # iOS port
+│   └── phase4-watchos.md    # Apple Watch integration
+├── technical/
+│   ├── stt-implementation.md # Whisper implementation details
+│   ├── translation.md       # NLLB-200 and other translation engines
+│   ├── tts-implementation.md # Coqui TTS implementation
+│   └── speaker-diarization.md # Speaker identification
+└── requirements/
+    ├── functional.md        # Functional requirements
+    ├── technical.md         # Technical requirements
+    └── constraints.md       # Technical constraints
+
+app/
+├── data/
+│   ├── audio/              # Audio processing
+│   │   ├── recorder/      # Audio recording
+│   │   └── player/        # Audio playback
+│   ├── stt/               # Speech-to-Text
+│   │   ├── whisper/      # Whisper implementation
+│   │   └── diarization/  # Speaker identification
+│   ├── translation/       # Translation engines
+│   │   ├── nllb/         # NLLB implementation
+│   │   └── api/          # Cloud translation APIs
+│   └── tts/              # Text-to-Speech
+│       ├── coqui/        # Coqui implementation
+│       └── system/       # System TTS fallback
+├── domain/
+│   ├── model/            # Domain models
+│   ├── repository/       # Repository interfaces
+│   └── usecase/         # Use cases
+├── presentation/
+│   ├── main/            # Main activity
+│   ├── conversation/    # Conversation UI
+│   └── settings/        # App settings
+└── di/                  # Dependency injection
